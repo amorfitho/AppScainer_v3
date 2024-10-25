@@ -1,3 +1,16 @@
+ion-content {
+  --background: #003566;
+}
+
+ion-toolbar {
+  --background: #000F26;
+}
+
+ion-button {
+  --background: #FFC300;
+}
+
+
 #container {
   text-align: center;
 
@@ -24,4 +37,11 @@
 
 #container a {
   text-decoration: none;
+}
+
+.boton_container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100%; 
 }
