@@ -1,0 +1,31 @@
+ion-content {
+    --background: #003566;
+}
+
+ion-toolbar {
+    --background: #000814;
+}
+
+ion-button {
+  --background: #FFC300;
+}
+
+
+ion-card {
+    margin: 20px;
+}
+  
+ion-card-title {
+    text-align: center;
+}
+  
+  ion-button {
+    margin-top: 20px;
+}
+
+.ion-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
