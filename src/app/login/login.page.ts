@@ -36,37 +36,41 @@ export class LoginPage implements OnInit {
   }
 
   async ingresar() {
-
     this.cargando = true;
 
     const f = this.formularioLogin.value;
 
     this.apiService.verificarUsuario(f.nombre, f.password).subscribe(
-      async (usuario) => {
-          if (usuario) {
-              console.log('Ingresado');
-              localStorage.setItem('Ingresado', 'true');
-              this.navControl.navigateRoot('ini'); // Redirige a la página de perfil
-          } else {
-              const alert = await this.alertController.create({
-                  header: 'Error',
-                  message: 'Nombre o contraseña incorrectos.',
-                  buttons: ['Entendido']
-              });
-              await alert.present();
-          }
-          this.cargando = false;
-      },
-      async (error) => {
-          const alert = await this.alertController.create({
-              header: 'Error',
-              message: 'Hubo un problema al intentar iniciar sesión.',
-              buttons: ['Entendido']
-          });
-          await alert.present();
-          this.cargando = false;
-      }
-  );
+        async (usuario) => {
+            if (usuario) {
+                console.log('Ingresado');
+                localStorage.setItem('Ingresado', 'true');
+                localStorage.setItem('email', usuario.email); 
+              this.navControl.navigateRoot('ini');
+            } else {
+                const alert = await this.alertController.create({
+                    header: 'Algo te falto',
+                    message: 'Nombre o contraseña incorrectos.',
+                    buttons: ['Ta Bien']
+                });
+                await alert.present();
+            }
+            this.cargando = false;
+        },
+        async (error) => {
+            const alert = await this.alertController.create({
+                header: 'Error',
+                message: 'Hubo un problema al iniciar sesión.',
+                buttons: ['Entendido']
+            });
+            await alert.present();
+            this.cargando = false;
+            console.error('Error al iniciar sesión:', error);
+        }
+    );
+  }
+}
+
 
     /*
     const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
@@ -87,6 +91,8 @@ export class LoginPage implements OnInit {
     }
     this.cargando = false;
     }, 2000);
-    */
   }
 }
+  */
+
+

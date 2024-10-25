@@ -7,6 +7,20 @@
       "apellidos": "malparido",
       "email": "a@gmail.com",
       "password": "123"
+    },
+    {
+      "id": "b6409efd-aac1-4214-a55f-c81a71ba1be5",
+      "nombre": "fabian",
+      "apellidos": "gonzalez Adasme",
+      "email": "fabian@gmail.com",
+      "password": "789"
+    },
+    {
+      "id": "63140daa-bd20-4193-83b2-5c2f580997ab",
+      "nombre": "nombre",
+      "apellidos": "de_preuba",
+      "email": "prueba@gmail.com",
+      "password": "1234prueba"
     }
   ]
 }

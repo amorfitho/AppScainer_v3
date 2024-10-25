@@ -1,20 +1,24 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>Scainner</ion-title>
+    <ion-title>Perfil de Usuario</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="salir()">Cerrar Sesión</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <!--<ion-card>
-    <ion-card-header>
-      <ion-card-title>Bienbeindo{{ nombre }}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-    </ion-card-content>
-  </ion-card> -->
-  <ion-button (click)="salir()" class="boton_inicio" >Cerrar sesion </ion-button> 
-  <h1>bienvenido</h1>
-  <ion-avatar>
-    <img class="perfil" alt="Silhouette of a person's head" src="assets/icon/hasbulla.jpg" />
-  </ion-avatar>  
+<ion-content>
+  <div>
+    <p>Cargando datos del usuario...</p>
+    <ion-avatar>
+      <img class="perfil" alt="Silhouette of a person's head" src="assets/icon/hasbulla.jpg" />
+    </ion-avatar>
+  </div>
+  <div *ngIf="usuario">
+    <h2>Hola, {{ usuario.nombre }}!</h2>
+    <p>Apellidos: {{ usuario.apellidos }}</p>
+    <p>Email: {{ usuario.email }}</p>
+  </div>
+  
 </ion-content>
+    

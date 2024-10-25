@@ -42,7 +42,19 @@ export class ApiService {
 
   verificarUsuario(nombre: string, password: string): Observable<any> {
     return this.http.get<any[]>(`${this.apiUrl}?nombre=${nombre}&password=${password}`).pipe(
-      map((usuarios) => usuarios.length > 0 ? usuarios[0] : null)
+      map((usuarios) => {
+        console.log('Usuarios encontrados:', usuarios); // Imprime el array de usuarios
+        return usuarios.length > 0 ? usuarios[0] : null;
+    })
     );
   }
+
+  getUsuarioPorEmail(email: string): Observable<any> {
+    return this.http.get<any[]>(`${this.apiUrl}?email=${email}`).pipe(
+        map((usuarios) => {
+            return usuarios.length > 0 ? usuarios[0] : null;
+        })
+    );
+}
+
 }
