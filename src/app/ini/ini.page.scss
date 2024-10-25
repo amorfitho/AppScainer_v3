@@ -1,0 +1,40 @@
+ion-content {
+    --background: #003566;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100%; 
+  }
+  
+  ion-toolbar {
+    --background: #000814;
+  }
+  
+  ion-button {
+    --background: #FFC300;
+  }
+  
+  ion-avatar {
+    width: 200px; 
+    height: 200px; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-top: 0px;
+    margin-left: 45%; /* Centra el avatar horizontalmente */
+    transform: translateX(-50%) translateX(20px); /* Ajusta la posición hacia la derecha */
+  }
+  
+  .perfil {
+    width: 100%; 
+    height: 100%; 
+    border-radius: 50%; 
+    object-fit: cover; 
+  }
+  
+  h1 {
+    font-size: 1.5rem; /* Ajusta el tamaño del texto */
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-top: 30px; /* Añade un margen superior para separar el h1 de otros elementos */
+  }
