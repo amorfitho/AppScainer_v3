@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import {noingresadoGuard} from './noingresado.guard';
+import {ingresadoGuard} from './ingresado.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
+    canActivate: [noingresadoGuard]
   },
   {
     path: '',
@@ -13,35 +16,43 @@ const routes: Routes = [
   },
   {
     path: 'regis',
-    loadChildren: () => import('./regis/regis.module').then( m => m.RegisPageModule)
+    loadChildren: () => import('./regis/regis.module').then( m => m.RegisPageModule),
+    canActivate: [noingresadoGuard]
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
+    canActivate: [noingresadoGuard]
   },
   {
     path: 'recu',
-    loadChildren: () => import('./recu/recu.module').then( m => m.RecuPageModule)
+    loadChildren: () => import('./recu/recu.module').then( m => m.RecuPageModule),
+    canActivate: [noingresadoGuard]
   },
   {
     path: 'ini',
-    loadChildren: () => import('./ini/ini.module').then( m => m.IniPageModule)
+    loadChildren: () => import('./ini/ini.module').then( m => m.IniPageModule),
+    canActivate: [ingresadoGuard]
   },
   {
-    path: 'error',
-    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
+    path: '**',
+    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule),
+    canActivate: [noingresadoGuard]
   },
   {
     path: 'crud-lista',
-    loadChildren: () => import('./crud-lista/crud-lista.module').then( m => m.CrudListaPageModule)
+    loadChildren: () => import('./crud-lista/crud-lista.module').then( m => m.CrudListaPageModule),
+    canActivate: [ingresadoGuard]
   },
   {
     path: 'crud-modi',
-    loadChildren: () => import('./crud-modi/crud-modi.module').then( m => m.CrudModiPageModule)
+    loadChildren: () => import('./crud-modi/crud-modi.module').then( m => m.CrudModiPageModule),
+    canActivate: [ingresadoGuard]
   },
   {
     path: 'skainer',
-    loadChildren: () => import('./skainer/skainer.module').then( m => m.SkainerPageModule)
+    loadChildren: () => import('./skainer/skainer.module').then( m => m.SkainerPageModule),
+    canActivate: [ingresadoGuard]
   },
 ];
 
