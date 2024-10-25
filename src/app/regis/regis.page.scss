@@ -1,0 +1,72 @@
+ion-content {
+    --background: #003566;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+
+ion-toolbar {
+    --background: #000F26;
+}
+
+ion-button {
+  --background: #FFC300;
+}
+
+.boton_inicio{
+    margin-top: 0px;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+}
+  
+.registro-card {
+    background-color: #001D3D; 
+    width: 90%; 
+    max-width: 800px; 
+    height: auto; 
+    margin: 20px; 
+    padding: 20px; 
+    position: relative; 
+    padding: 16px;
+    border-radius: 20px;
+}
+  
+.boton_inicio {
+    position: absolute;
+    top: 10px; 
+    left: 10px; 
+    z-index: 10; 
+}
+
+ion-card {
+    --background: #001D3D;
+    color: #fff; 
+}
+  
+.custom-label {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.dato-rellenar {
+    color: #fff; 
+}
+
+ion-input::part(native) {
+    color: #fff; 
+}
+
+ion-item {
+    --background: #001D3D; 
+}
+
+.confirmar_botton{
+    margin-bottom: 20px;
+}
