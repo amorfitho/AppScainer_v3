@@ -1,0 +1,47 @@
+ion-content {
+    --background: #003566;
+}
+
+ion-toolbar {
+    --background: #000F26;
+}
+
+ion-button {
+  --background: #FFC300;
+}
+
+.avatar-centro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
+}
+
+.perfil {
+  width: 150px; /* Ajusta el tamaño según tus necesidades */
+  height: 150px; /* Ajusta el tamaño según tus necesidades */
+  border-radius: 50%; /* Hace que la imagen sea redonda */
+  object-fit: cover; /* Asegura que la imagen se recorte correctamente dentro del contenedor redondo */
+}
+
+ion-card {
+  --background: #001D3D;
+  color: #fff; 
+}
+
+.custom-label {
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.dato-rellenar {
+  color: #fff; 
+}
+
+ion-input::part(native) {
+  color: #fff; 
+}
+
+ion-item {
+  --background: #001D3D; 
+}
