@@ -11,6 +11,38 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'regis',
+    loadChildren: () => import('./regis/regis.module').then( m => m.RegisPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'recu',
+    loadChildren: () => import('./recu/recu.module').then( m => m.RecuPageModule)
+  },
+  {
+    path: 'ini',
+    loadChildren: () => import('./ini/ini.module').then( m => m.IniPageModule)
+  },
+  {
+    path: 'error',
+    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
+  },
+  {
+    path: 'crud-lista',
+    loadChildren: () => import('./crud-lista/crud-lista.module').then( m => m.CrudListaPageModule)
+  },
+  {
+    path: 'crud-modi',
+    loadChildren: () => import('./crud-modi/crud-modi.module').then( m => m.CrudModiPageModule)
+  },
+  {
+    path: 'skainer',
+    loadChildren: () => import('./skainer/skainer.module').then( m => m.SkainerPageModule)
+  },
 ];
 
 @NgModule({
