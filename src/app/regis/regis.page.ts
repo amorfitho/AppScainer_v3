@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,FormBuilder,Validators, EmailValidator} from '@angular/forms';
 import { AlertController, NavController } from '@ionic/angular';
+import { ApiService } from '../services/api.service';
+
 
 
 @Component({
@@ -12,7 +14,10 @@ export class RegisPage implements OnInit {
 
   formularioRegis: FormGroup;
 
-  constructor(public fb: FormBuilder, public alertController: AlertController, public navControl: NavController ) { 
+  constructor(public fb: FormBuilder, 
+              public alertController: AlertController, 
+              public navControl: NavController,
+              private apiService: ApiService ) { 
 
     this.formularioRegis = this.fb.group({
       'nombre': new FormControl("",Validators.required),
@@ -48,12 +53,35 @@ export class RegisPage implements OnInit {
       email: f.email,
       password: f.password
     }
+    
 
+    this.apiService.createUsuario(usuario).subscribe(
+      async (response) => {
+          const alert = await this.alertController.create({
+              header: 'Registro Exitoso',
+              message: 'Usuario registrado correctamente.',
+              buttons: ['Entendido']
+          });
+          await alert.present();
+          this.navControl.navigateRoot('login'); // Redirige a la página de login
+      },
+      async (error) => {
+          const alert = await this.alertController.create({
+              header: 'Error',
+              message: 'Hubo un problema al registrar el usuario.',
+              buttons: ['Entendido']
+          });
+          await alert.present();
+          console.error('Error al registrar el usuario:', error);
+      }
+  );
+  
+    /*
     localStorage.setItem('usuario',JSON.stringify(usuario));
 
     localStorage.setItem('Registrado','true');
       this.navControl.navigateRoot('');
-
+    */
   }
 
   

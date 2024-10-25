@@ -1,0 +1,12 @@
+{
+  "usuarios": [
+    {},
+    {
+      "id": "4e0d5cb3-3680-44da-a203-9559442e9d0e",
+      "nombre": "hans",
+      "apellidos": "malparido",
+      "email": "a@gmail.com",
+      "password": "123"
+    }
+  ]
+}
