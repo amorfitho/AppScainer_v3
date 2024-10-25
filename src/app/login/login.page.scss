@@ -1,0 +1,66 @@
+ion-content {
+    --background: #003566;
+}
+
+ion-toolbar {
+    --background: #000F26;
+}
+
+ion-button {
+  --background: #FFC300;
+}
+
+.center-content {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+.logeo-card {
+    width: 100%;
+    max-width: 400px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 8px; 
+}
+
+h1{
+    color: #4872e4;
+    margin-top: 10px;
+    font-size: 14px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+a{
+    display: inline-block; /* Asegura que el enlace se comporte como un elemento en línea */
+    padding: 0; /* Elimina el relleno para que el área clickeable sea del mismo tamaño que el texto */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+}
+
+ion-card {
+    --background: #001D3D;
+    color: #fff; 
+}
+  
+.custom-label {
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.dato-rellenar {
+    color: #fff; 
+}
+
+ion-input::part(native) {
+    color: #fff; 
+}
+
+ion-item {
+    --background: #001D3D; 
+}
+ion-spinner {
+    width: 100px;
+    height: 100px;
+}
+
+.ion-label{
+    color:#fff
+}
