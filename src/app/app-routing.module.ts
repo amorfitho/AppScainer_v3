@@ -40,12 +40,12 @@ const routes: Routes = [
     canActivate: [noingresadoGuard]
   },
   {
-    path: 'crud-lista',
+    path: 'lista',
     loadChildren: () => import('./crud-lista/crud-lista.module').then( m => m.CrudListaPageModule),
     canActivate: [ingresadoGuard]
   },
   {
-    path: 'crud-modi',
+    path: 'modi',
     loadChildren: () => import('./crud-modi/crud-modi.module').then( m => m.CrudModiPageModule),
     canActivate: [ingresadoGuard]
   },

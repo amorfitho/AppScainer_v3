@@ -19,6 +19,9 @@
     <p>Apellidos: {{ usuario.apellidos }}</p>
     <p>Email: {{ usuario.email }}</p>
   </div>
-  
+  <ion-item>
+  <ion-button (click)="modificarUsuario()" color="primary">Modificar</ion-button>
+  <ion-button routerLink="/crud-lista"> modificar2 </ion-button>
+  </ion-item>
 </ion-content>
     

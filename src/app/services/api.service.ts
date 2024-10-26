@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map,switchMap } from 'rxjs/operators';
+
 import { v4 as uuidv4 } from 'uuid';
 
 @Injectable({
@@ -55,6 +56,20 @@ export class ApiService {
             return usuarios.length > 0 ? usuarios[0] : null;
         })
     );
+}
+deleteUsuarioPorEmail(email: string): Observable<any> {
+  return this.http.get<any[]>(`${this.apiUrl}?email=${email}`).pipe(
+    map((usuarios) => usuarios[0]), // Seleccionar el primer usuario que coincida con el email
+    switchMap((usuario) => this.http.delete(`${this.apiUrl}/${usuario.id}`))
+  );
+}
+
+// Actualizar usuario por email
+updateUsuarioPorEmail(email: string, datosActualizados: any): Observable<any> {
+  return this.http.get<any[]>(`${this.apiUrl}?email=${email}`).pipe(
+    map((usuarios) => usuarios[0]), // Seleccionar el primer usuario que coincida con el email
+    switchMap((usuario) => this.http.put(`${this.apiUrl}/${usuario.id}`, datosActualizados))
+  );
 }
 
 }
