@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl,FormBuilder,Validators, EmailValidator} from '@angular/forms';
 import { AlertController, NavController } from '@ionic/angular';
+import { IUsuario } from '../interfaces/iusuario';
+import { SUsuarioService } from '../services/susuario.service';
 
 
 @Component({
@@ -9,6 +11,49 @@ import { AlertController, NavController } from '@ionic/angular';
   styleUrls: ['./regis.page.scss'],
 })
 export class RegisPage implements OnInit {
+
+  //formularioRegis: FormGroup;
+
+  newUsuario:IUsuario = {
+    nombre:"",
+    apellidos:"",
+    email:"",
+    password:""
+  };
+
+
+  constructor(public fb: FormBuilder, 
+              public alertController: AlertController,
+              private usuarioServ: SUsuarioService,
+              public navControl: NavController
+            ){}
+
+  ngOnInit() {
+  }
+
+  crearUsuario(){
+    /*
+    var f = this.formularioRegis.value;
+
+    if (this.formularioRegis.invalid){
+      const alert = await this.alertController.create({
+        header: 'Algo te falto',
+        subHeader: 'Subtitle',
+        message: 'Tienes que llenar todos los campos.',
+        buttons: ['Ta Bien']
+      })
+
+      await alert.present();
+      return;
+      
+    }*/
+
+    this.usuarioServ.crearUsuario(this.newUsuario).subscribe()
+    this.navControl.navigateRoot('/login')
+  }
+
+
+  /*
 
   formularioRegis: FormGroup;
 
@@ -21,11 +66,9 @@ export class RegisPage implements OnInit {
       'password': new FormControl("",Validators.required),
       'confirmarPassword': new FormControl("",Validators.required)
     });
-  }
+  }*/
 
-  ngOnInit() {
-  }
-
+  /*
   async guardar(){
     var f = this.formularioRegis.value;
 
@@ -55,7 +98,7 @@ export class RegisPage implements OnInit {
       this.navControl.navigateRoot('');
 
   }
-
+*/
   
 
 }

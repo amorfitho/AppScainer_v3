@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import {ingresadoGuard} from './ingresado.guard';
+
 
 const routes: Routes = [
   {
@@ -29,9 +29,9 @@ const routes: Routes = [
      
   },
   {
-    path: 'ini',
-    loadChildren: () => import('./ini/ini.module').then( m => m.IniPageModule),
-    canActivate: [ingresadoGuard]
+    path: 'ini/:id',
+    loadChildren: () => import('./ini/ini.module').then( m => m.IniPageModule)
+    
   },
   {
     path: '**',
@@ -40,18 +40,18 @@ const routes: Routes = [
   },
   {
     path: 'lista',
-    loadChildren: () => import('./crud-lista/crud-lista.module').then( m => m.CrudListaPageModule),
-    canActivate: [ingresadoGuard]
+    loadChildren: () => import('./crud-lista/crud-lista.module').then( m => m.CrudListaPageModule)
+    
   },
   {
     path: 'crud-modi',
-    loadChildren: () => import('./crud-modi/crud-modi.module').then( m => m.CrudModiPageModule),
-    canActivate: [ingresadoGuard]
+    loadChildren: () => import('./crud-modi/crud-modi.module').then( m => m.CrudModiPageModule)
+    
   },
   {
     path: 'skainer',
-    loadChildren: () => import('./skainer/skainer.module').then( m => m.SkainerPageModule),
-    canActivate: [ingresadoGuard]
+    loadChildren: () => import('./skainer/skainer.module').then( m => m.SkainerPageModule)
+    
   },
 ];
 

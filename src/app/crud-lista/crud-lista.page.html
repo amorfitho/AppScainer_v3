@@ -5,9 +5,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">crud-lista</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item *ngFor="let u of usuarios; let indexArray = index">
+      <ion-label> {{ u.id }}, {{u.nombre}},{{u.apellidos}},{{u.email}}</ion-label>
+    </ion-item>
+  </ion-list>
 </ion-content>

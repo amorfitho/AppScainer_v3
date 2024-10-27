@@ -1,23 +1,54 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController, NavController } from '@ionic/angular';
+import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
+import { IUsuario } from '../interfaces/iusuario';
+import { SUsuarioService } from '../services/susuario.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-ini',
   templateUrl: './ini.page.html',
   styleUrls: ['./ini.page.scss'],
 })
-export class IniPage implements OnInit {
+export class IniPage {
 
-  nombre: string = '';
-  apellidos: string = '';
-  email: string = '';
+  usuario ={
+    id:0,
+    nombre:"",
+    apellidos:"",
+    email:"",
+    password:""
+  };
 
+  constructor(public navControl: NavController, private usuarioserv: SUsuarioService, private loadinCTrL:LoadingController, private router: Router) {}
 
-  constructor(public navControl: NavController) {}
-
-  ngOnInit() {
+  ionViewWillEnter(){
+    this.getUsuarioById(this.getFromURL())
   }
-  
+
+  getFromURL(){
+    let url = this.router.url
+    let arr = url.split("/",3)
+    let id = parseInt(arr[2])
+    return id
+  }
+
+  getUsuarioById(usuarioId:number){
+    this.usuarioserv.getUsuarioById(usuarioId).subscribe(
+    (resp:any) =>{
+      this.usuario={
+        id: resp[0].id,
+        nombre: resp[0].nombre,
+        apellidos: resp[0].apellidos,
+        email: resp[0].email,
+        password: resp[0].password
+      }
+    }
+    )
+  }
+
+  /*
   datosentrada() {
     
     const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
@@ -27,7 +58,7 @@ export class IniPage implements OnInit {
     this.email = usuario.email || 'email@gmai.cl';
 
     
-  }
+  }*/
 
   async salir() {
     localStorage.removeItem('Ingresado');
