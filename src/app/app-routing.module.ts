@@ -1,13 +1,12 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import {noingresadoGuard} from './noingresado.guard';
 import {ingresadoGuard} from './ingresado.guard';
 
 const routes: Routes = [
   {
     path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule),
-    canActivate: [noingresadoGuard]
+    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
+    
   },
   {
     path: '',
@@ -16,18 +15,18 @@ const routes: Routes = [
   },
   {
     path: 'regis',
-    loadChildren: () => import('./regis/regis.module').then( m => m.RegisPageModule),
-    canActivate: [noingresadoGuard]
+    loadChildren: () => import('./regis/regis.module').then( m => m.RegisPageModule)
+    
   },
   {
     path: 'login',
-    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule),
-    canActivate: [noingresadoGuard]
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+    
   },
   {
     path: 'recu',
-    loadChildren: () => import('./recu/recu.module').then( m => m.RecuPageModule),
-    canActivate: [noingresadoGuard]
+    loadChildren: () => import('./recu/recu.module').then( m => m.RecuPageModule)
+     
   },
   {
     path: 'ini',
@@ -36,11 +35,11 @@ const routes: Routes = [
   },
   {
     path: '**',
-    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule),
-    canActivate: [noingresadoGuard]
+    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
+    
   },
   {
-    path: 'crud-lista',
+    path: 'lista',
     loadChildren: () => import('./crud-lista/crud-lista.module').then( m => m.CrudListaPageModule),
     canActivate: [ingresadoGuard]
   },

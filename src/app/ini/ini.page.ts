@@ -17,7 +17,7 @@ export class IniPage implements OnInit {
 
   ngOnInit() {
   }
-
+  
   datosentrada() {
     
     const usuario = JSON.parse(localStorage.getItem('usuario') || '{}');
@@ -25,6 +25,8 @@ export class IniPage implements OnInit {
     this.nombre = usuario.nombre || 'Usuario';
     this.apellidos = usuario.apellidos || 'apellido paterno apellido materno';
     this.email = usuario.email || 'email@gmai.cl';
+
+    
   }
 
   async salir() {
