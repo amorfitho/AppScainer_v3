@@ -44,7 +44,7 @@ const routes: Routes = [
     
   },
   {
-    path: 'crud-modi',
+    path: 'modi/:id',
     loadChildren: () => import('./crud-modi/crud-modi.module').then( m => m.CrudModiPageModule)
     
   },

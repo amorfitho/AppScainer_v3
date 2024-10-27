@@ -4,10 +4,37 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">crud-modi</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <ion-button class="boton_inicio" routerLink="/lista">Volver</ion-button>
+  <div class="center-content">
+    <ion-card class="registro-card">
+      <ion-card-header>
+        <ion-card-title>Registrarse</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form class="fondo" ></form>
+        <ion-item>
+          <ion-label class="custom-label" position="floating">Nombre:</ion-label>
+          <ion-input class="dato-rellenar"type="text" name="nombre" [(ngModel)]="usuario.nombre" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="custom-label" position="floating">Apellidos:</ion-label>
+          <ion-input class="dato-rellenar"type="text" name="apellidos" [(ngModel)]="usuario.apellidos"  required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="custom-label" position="floating">Email:</ion-label>
+          <ion-input class="dato-rellenar"type="text" name="email" [(ngModel)]="usuario.email" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="custom-label" position="floating">contraseña:</ion-label>
+          <ion-input class="dato-rellenar"type="text" name="password" [(ngModel)]="usuario.password" required></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="custom-label" position="floating">confirmar contraseña:</ion-label>
+          <ion-input class="dato-rellenar"type="text" placeholder="Repita Contraseña" ></ion-input>
+        </ion-item>
+        <ion-button class="confirmar_botton" (click)="actualizarUsuario()" expand="block" type="submit">actualiazte</ion-button>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

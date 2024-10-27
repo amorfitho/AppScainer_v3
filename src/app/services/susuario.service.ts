@@ -21,8 +21,14 @@ export class SUsuarioService {
   }
 
   getUsuarioById(id:Number):Observable<IUsuarios>{
-    return this.http.get<IUsuarios>(`${environment.apiURL}/usuarios/?id=${id}`,)
+    return this.http.get<IUsuarios>(`${environment.apiURL}/usuarios/?id=${id}`)
 
   }
+
+  updateUsuario(usuario:any):Observable<IUsuarios>{
+    return this.http.post<IUsuarios>(`${environment.apiURL}/usuarios/${usuario.id}`,usuario)
+  }
+
+  
 
 }
