@@ -53,7 +53,7 @@ export class IniPage {
   async salir() {
     localStorage.removeItem('Ingresado');
     console.log('Sesión cerrada');
-    // Redirige al usuario a la página de login después de cerrar sesión
+    
     this.navControl.navigateRoot('login');
   }
   /*

@@ -48,7 +48,7 @@ const routes: Routes = [
     loadChildren: () => import('./skainer/skainer.module').then( m => m.SkainerPageModule)
     
   },
-  // La ruta wildcard debe ser la última
+  
   {
     path: '**',
     loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
