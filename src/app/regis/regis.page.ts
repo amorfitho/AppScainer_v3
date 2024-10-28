@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl,FormBuilder,Validators, EmailValidator} from '@angular/forms';
 import { AlertController, NavController } from '@ionic/angular';
 import { IUsuario } from '../interfaces/iusuario';
 import { SUsuarioService } from '../services/susuario.service';
-
 
 @Component({
   selector: 'app-regis',
@@ -12,105 +10,83 @@ import { SUsuarioService } from '../services/susuario.service';
 })
 export class RegisPage implements OnInit {
 
-  newUsuario:IUsuario = {
-    nombre:"",
-    apellidos:"",
-    email:"",
-    password:""
+  newUsuario: IUsuario = {
+    nombre: "",
+    apellidos: "",
+    email: "",
+    password: ""
   };
 
-  confimarPassword: string="";
-  
+  confirmarPassword: string = "";
 
   constructor(
-              public alertController: AlertController,
-              private usuarioServ: SUsuarioService,
-              public navControl: NavController
-            ){}
+    public alertController: AlertController,
+    private usuarioServ: SUsuarioService,
+    public navControl: NavController
+  ) {}
 
   ngOnInit() {
   }
   
-  crearUsuario(){
-    this.usuarioServ.crearUsuario(this.newUsuario).subscribe(() => {
-    this.navControl.navigateRoot('/login');
-    })
-  }
-}
-
-
-/*
-  async crearUsuario(){
-    if (!this.newUsuario.nombre || 
-        !this.newUsuario.apellidos || 
-        !this.newUsuario.email || 
-        !this.newUsuario.password || 
-        !this.confimarPassword||
-        this.newUsuario.password !== this.confimarPassword){
+  async crearUsuario() {
+    if (!this.validarCampos()) {
       const alert = await this.alertController.create({
-        header: 'Algo te falto',
-        subHeader: 'Faltan Campos',
-        message: 'Tienes que llenar todos los campos.',
-        buttons: ['Ta Bien']
+        header: 'Error',
+        message: 'Por favor, complete todos los campos',
+        buttons: ['OK']
       });
-  
       await alert.present();
       return;
     }
-  
-    this.usuarioServ.crearUsuario(this.newUsuario).subscribe(() => {
-      this.navControl.navigateRoot('/login');
+
+    if (!this.validarPassword()) {
+      const alert = await this.alertController.create({
+        header: 'Error',
+        message: 'Las contraseñas no coinciden',
+        buttons: ['OK']
+      });
+      await alert.present();
+      return;
+    }
+
+    this.usuarioServ.crearUsuario(this.newUsuario).subscribe(
+      () => {
+        this.mostrarMensajeExito();
+        this.navControl.navigateRoot('/login');
+      },
+      error => {
+        this.mostrarError('Error al crear el usuario');
+      }
+    );
+  }
+
+  private validarCampos(): boolean {
+    return !!(this.newUsuario.nombre && 
+              this.newUsuario.apellidos && 
+              this.newUsuario.email && 
+              this.newUsuario.password && 
+              this.confirmarPassword);
+  }
+
+  private validarPassword(): boolean {
+    return this.newUsuario.password === this.confirmarPassword;
+  }
+
+  private async mostrarMensajeExito() {
+    const alert = await this.alertController.create({
+      header: 'Éxito',
+      message: 'Usuario creado correctamente',
+      buttons: ['OK']
     });
+    await alert.present();
+  }
+
+  private async mostrarError(mensaje: string) {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: mensaje,
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 }
-  */
-
-
-
-
-  /*
-
-  formularioRegis: FormGroup;
-
-  constructor(public fb: FormBuilder, public alertController: AlertController, public navControl: NavController ) { 
-
-    this.formularioRegis = this.fb.group({
-      'nombre': new FormControl("",Validators.required),
-      'apellidos': new FormControl("",Validators.required),
-      'email': new FormControl("",Validators.required),
-      'password': new FormControl("",Validators.required),
-      'confirmarPassword': new FormControl("",Validators.required)
-    });
-  }*/
-
-  /*
-  async guardar(){
-    var f = this.formularioRegis.value;
-
-    if (this.formularioRegis.invalid){
-      const alert = await this.alertController.create({
-        header: 'Algo te falto',
-        subHeader: 'Subtitle',
-        message: 'Tienes que llenar todos los campos.',
-        buttons: ['Ta Bien']
-      })
-
-      await alert.present();
-      return;
-      
-    }
-
-    var usuario ={
-      nombre: f.nombre,
-      apellidos: f.apellidos,
-      email: f.email,
-      password: f.password
-    }
-
-    localStorage.setItem('usuario',JSON.stringify(usuario));
-
-    localStorage.setItem('Registrado','true');
-      this.navControl.navigateRoot('');
-
-  }
-*/
