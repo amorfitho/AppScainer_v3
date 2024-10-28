@@ -27,6 +27,13 @@
       "apellidos": "malpartida Ezperanza",
       "email": "Malpartida@gmail.com",
       "password": "456"
+    },
+    {
+      "id": "7511",
+      "nombre": "luca",
+      "apellidos": "friz gonzalez",
+      "email": "luca@gmail.cm",
+      "password": "123"
     }
   ]
 }

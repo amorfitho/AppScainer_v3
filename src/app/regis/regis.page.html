@@ -23,15 +23,15 @@
         </ion-item>
         <ion-item>
           <ion-label class="custom-label" position="floating">Email:</ion-label>
-          <ion-input class="dato-rellenar"type="text" name="email" [(ngModel)]="newUsuario.email" placeholder="hans@gmail.com" required></ion-input>
+          <ion-input class="dato-rellenar"type="email" name="email" [(ngModel)]="newUsuario.email" placeholder="hans@gmail.com" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label class="custom-label" position="floating">contraseña:</ion-label>
-          <ion-input class="dato-rellenar"type="text" name="password" [(ngModel)]="newUsuario.password" placeholder="1234.contraseña" required></ion-input>
+          <ion-input class="dato-rellenar"type="password" name="password" [(ngModel)]="newUsuario.password" placeholder="1234.contraseña" required></ion-input>
         </ion-item>
         <ion-item>
           <ion-label class="custom-label" position="floating">confirmar contraseña:</ion-label>
-          <ion-input class="dato-rellenar"type="text" placeholder="Repita Contraseña" ></ion-input>
+          <ion-input class="dato-rellenar"type="password" name="comconfimarPassword" placeholder="Repita Contraseña" required></ion-input>
         </ion-item>
         <ion-button class="confirmar_botton" (click)="crearUsuario()" expand="block" type="submit">Registrarse</ion-button>
       </ion-card-content>

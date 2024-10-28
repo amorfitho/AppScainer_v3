@@ -17,26 +17,36 @@
         <ion-card-title>Iniciar Sesión</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <form [formGroup]="formularioLogin" (keyup.enter)="ingresar()"> 
+        <form> 
           <div>
             <ion-item>
               <ion-label position="floating">Ingrese su Nombre:</ion-label>
-              <br>
-              <ion-input formControlName="nombre" placeholder="Riqui"></ion-input>
+              <ion-input 
+                [(ngModel)]="newUsuario.nombre" 
+                name="nombre" 
+                placeholder="Ingrese su nombre"
+                required>
+              </ion-input>
             </ion-item>
             <ion-item>
               <ion-label position="floating">Ingrese su Contraseña:</ion-label>
-              <br>
-              <ion-input formControlName="password" type="password" placeholder="Password.1234" value=""></ion-input>
+              <ion-input 
+                [(ngModel)]="newUsuario.password" 
+                name="password" 
+                type="password" 
+                placeholder="Ingrese su contraseña"
+                required>
+              </ion-input>
             </ion-item>
             <ion-item>
-              <ion-button (click)="ingresar()" expand="block" type="submit">Iniciar Sesión</ion-button>
+              <ion-button expand="block" (click)="validarLogin()" class="ion-margin-top">
+                Iniciar Sesión
+              </ion-button>
             </ion-item>
             <a routerLink="/recu">
-              <h1 href="/recu">olvidaste tu contraseña?</h1>
+              <h1>¿Olvidaste tu contraseña?</h1>
             </a>
           </div>
-          <ion-spinner *ngIf="cargando"></ion-spinner>
         </form>
       </ion-card-content>
     </ion-card>

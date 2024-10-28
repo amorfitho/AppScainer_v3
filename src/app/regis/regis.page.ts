@@ -12,8 +12,6 @@ import { SUsuarioService } from '../services/susuario.service';
 })
 export class RegisPage implements OnInit {
 
-  //formularioRegis: FormGroup;
-
   newUsuario:IUsuario = {
     nombre:"",
     apellidos:"",
@@ -21,8 +19,10 @@ export class RegisPage implements OnInit {
     password:""
   };
 
+  confimarPassword: string="";
+  
 
-  constructor(public fb: FormBuilder, 
+  constructor(
               public alertController: AlertController,
               private usuarioServ: SUsuarioService,
               public navControl: NavController
@@ -30,27 +30,42 @@ export class RegisPage implements OnInit {
 
   ngOnInit() {
   }
-
+  
   crearUsuario(){
-    /*
-    var f = this.formularioRegis.value;
+    this.usuarioServ.crearUsuario(this.newUsuario).subscribe(() => {
+    this.navControl.navigateRoot('/login');
+    })
+  }
+}
 
-    if (this.formularioRegis.invalid){
+
+/*
+  async crearUsuario(){
+    if (!this.newUsuario.nombre || 
+        !this.newUsuario.apellidos || 
+        !this.newUsuario.email || 
+        !this.newUsuario.password || 
+        !this.confimarPassword||
+        this.newUsuario.password !== this.confimarPassword){
       const alert = await this.alertController.create({
         header: 'Algo te falto',
-        subHeader: 'Subtitle',
+        subHeader: 'Faltan Campos',
         message: 'Tienes que llenar todos los campos.',
         buttons: ['Ta Bien']
-      })
-
+      });
+  
       await alert.present();
       return;
-      
-    }*/
-
-    this.usuarioServ.crearUsuario(this.newUsuario).subscribe()
-    this.navControl.navigateRoot('/login')
+    }
+  
+    this.usuarioServ.crearUsuario(this.newUsuario).subscribe(() => {
+      this.navControl.navigateRoot('/login');
+    });
   }
+}
+  */
+
+
 
 
   /*
@@ -99,6 +114,3 @@ export class RegisPage implements OnInit {
 
   }
 */
-  
-
-}
