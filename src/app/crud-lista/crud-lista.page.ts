@@ -1,42 +1,79 @@
 import { Component, OnInit } from '@angular/core';
 import { SUsuarioService } from '../services/susuario.service';
-import { InfiniteScrollCustomEvent, LoadingController } from '@ionic/angular';
-import { IUsuarios } from '../interfaces/iusuarios';
-
+import { AlertController } from '@ionic/angular';
+import { IUsuario } from '../interfaces/iusuario';
 
 @Component({
   selector: 'app-crud-lista',
   templateUrl: './crud-lista.page.html',
   styleUrls: ['./crud-lista.page.scss'],
 })
-export class CrudListaPage {
+export class CrudListaPage implements OnInit {
+  usuarios: any[] = [];
 
-  usuarios: IUsuarios[] = [];
+  constructor(
+    private usuarioServ: SUsuarioService,
+    private alertController: AlertController
+  ) { }
 
-  constructor(private usuarioserv: SUsuarioService, private loadinCTrL:LoadingController) { }
-
-  ionViewWillEnter(){
-    this.loadusuarios()
+  ngOnInit() {
+    this.cargarUsuarios();
   }
 
-  async loadusuarios(event?: InfiniteScrollCustomEvent){
-    const loading = await this.loadinCTrL.create({
-      message: "carganso datos...",
-      spinner: "bubbles"
-    });
-    await loading.present();
+  ionViewWillEnter() {
+    this.cargarUsuarios();
+  }
 
-    this.usuarioserv.listarUsuarios().subscribe(
-      (resp) => {
-        loading.dismiss();
-        let listString = JSON.stringify(resp)
-        this.usuarios = JSON.parse(listString)
-        event?.target.complete();
+  cargarUsuarios() {
+    this.usuarioServ.listarUsuarios().subscribe((resp: any) => {
+      this.usuarios = resp;
+    });
+  }
+
+  async eliminarUsuario(id: number) {
+    const alert = await this.alertController.create({
+      header: 'Confirmar eliminación',
+      message: '¿Estás seguro que deseas eliminar este usuario?',
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel'
         },
-        (err) =>{
-          console.log(err.message)
-          loading.dismiss();
+        {
+          text: 'Eliminar',
+          handler: () => {
+            this.usuarioServ.eliminarUsuario(id).subscribe(
+              () => {
+                this.mostrarMensajeExito();
+                this.cargarUsuarios(); // Recargar la lista después de eliminar
+              },
+              error => {
+                this.mostrarError('Error al eliminar el usuario');
+              }
+            );
+          }
         }
-      )
+      ]
+    });
+
+    await alert.present();
+  }
+
+  private async mostrarMensajeExito() {
+    const alert = await this.alertController.create({
+      header: 'Éxito',
+      message: 'Usuario eliminado correctamente',
+      buttons: ['OK']
+    });
+    await alert.present();
+  }
+
+  private async mostrarError(mensaje: string) {
+    const alert = await this.alertController.create({
+      header: 'Error',
+      message: mensaje,
+      buttons: ['OK']
+    });
+    await alert.present();
   }
 }
