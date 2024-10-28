@@ -20,7 +20,8 @@
           <h3>Correo: {{ usuario.email }}</h3>
       </ion-item>
       <ion-item>
-        <ion-button routerLink="/lista" >crud</ion-button>
+        <ion-button routerLink="/lista" >Lista de Usuarios</ion-button>
+        <ion-button routerLink="['/modi','usuario.id']" color="warning">Modificar</ion-button>
       </ion-item>
   </ion-card-content>
 </ion-content>

@@ -9,7 +9,6 @@
     <ion-item *ngFor="let u of usuarios; let indexArray = index">
       <div>
       <ion-label> {{ u.id }}, {{u.nombre}},{{u.apellidos}},{{u.email}}</ion-label>
-      <ion-button routerLink="['/modi','u.id']" color="warning">Modificar</ion-button>
       <ion-button color="danger">Eliminar</ion-button>
       </div>
     </ion-item>

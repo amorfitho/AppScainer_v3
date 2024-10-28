@@ -29,6 +29,8 @@ export class SUsuarioService {
     return this.http.post<IUsuarios>(`${environment.apiURL}/usuarios/${usuario.id}`,usuario)
   }
 
-  
+  eliminarUsuario(id: number): Observable<any> {
+    return this.http.delete(`${environment.apiURL}/usuarios/${id}`);
+  }
 
 }

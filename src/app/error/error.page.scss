@@ -15,3 +15,33 @@ h1{
     font-size: 50px;
     font-family: Arial, sans-serif;
 }
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  text-align: center;
+
+  h1 {
+    font-size: 2.5em;
+    color: var(--ion-color-danger);
+    margin-bottom: 20px;
+  }
+
+  img {
+    max-width: 300px;
+    margin: 20px 0;
+  }
+
+  h2 {
+    color: var(--ion-color-medium);
+    margin-bottom: 30px;
+  }
+
+  ion-button {
+    max-width: 200px;
+  }
+}

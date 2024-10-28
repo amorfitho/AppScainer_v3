@@ -1,39 +1,47 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>crud-modi</ion-title>
+    <ion-title>Modificar Usuario</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/lista"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-button class="boton_inicio" routerLink="/lista">Volver</ion-button>
   <div class="center-content">
     <ion-card class="registro-card">
       <ion-card-header>
-        <ion-card-title>Registrarse</ion-card-title>
+        <ion-card-title>Modificar Usuario</ion-card-title>
       </ion-card-header>
       <ion-card-content>
-        <form class="fondo" ></form>
-        <ion-item>
-          <ion-label class="custom-label" position="floating">Nombre:</ion-label>
-          <ion-input class="dato-rellenar"type="text" name="nombre" [(ngModel)]="usuario.nombre" required></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label class="custom-label" position="floating">Apellidos:</ion-label>
-          <ion-input class="dato-rellenar"type="text" name="apellidos" [(ngModel)]="usuario.apellidos"  required></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label class="custom-label" position="floating">Email:</ion-label>
-          <ion-input class="dato-rellenar"type="text" name="email" [(ngModel)]="usuario.email" required></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label class="custom-label" position="floating">contraseña:</ion-label>
-          <ion-input class="dato-rellenar"type="text" name="password" [(ngModel)]="usuario.password" required></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label class="custom-label" position="floating">confirmar contraseña:</ion-label>
-          <ion-input class="dato-rellenar"type="text" placeholder="Repita Contraseña" ></ion-input>
-        </ion-item>
-        <ion-button class="confirmar_botton" (click)="actualizarUsuario()" expand="block" type="submit">actualiazte</ion-button>
+        <form>
+          <ion-item>
+            <ion-label position="floating">Nombre:</ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.nombre" name="nombre" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Apellidos:</ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.apellidos" name="apellidos" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Email:</ion-label>
+            <ion-input type="email" [(ngModel)]="usuario.email" name="email" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña:</ion-label>
+            <ion-input type="password" [(ngModel)]="usuario.password" name="password" required></ion-input>
+          </ion-item>
+          
+          <div class="ion-margin-top ion-padding-top">
+            <ion-button expand="block" (click)="actualizarUsuario()" color="primary">
+              Actualizar Usuario
+            </ion-button>
+            
+            <ion-button expand="block" (click)="eliminarUsuario()" color="danger" class="ion-margin-top">
+              Eliminar Usuario
+            </ion-button>
+          </div>
+        </form>
       </ion-card-content>
     </ion-card>
   </div>

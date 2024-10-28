@@ -34,11 +34,6 @@ const routes: Routes = [
     
   },
   {
-    path: '**',
-    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
-    
-  },
-  {
     path: 'lista',
     loadChildren: () => import('./crud-lista/crud-lista.module').then( m => m.CrudListaPageModule)
     
@@ -51,6 +46,12 @@ const routes: Routes = [
   {
     path: 'skainer',
     loadChildren: () => import('./skainer/skainer.module').then( m => m.SkainerPageModule)
+    
+  },
+  // La ruta wildcard debe ser la última
+  {
+    path: '**',
+    loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
     
   },
 ];
