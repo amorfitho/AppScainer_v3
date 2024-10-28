@@ -1,13 +1,48 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>crud-modi</ion-title>
+    <ion-title>Modificar Usuario</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/lista"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">crud-modi</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+  <div class="center-content">
+    <ion-card class="registro-card">
+      <ion-card-header>
+        <ion-card-title>Modificar Usuario</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <form>
+          <ion-item>
+            <ion-label position="floating">Nombre:</ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.nombre" name="nombre" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Apellidos:</ion-label>
+            <ion-input type="text" [(ngModel)]="usuario.apellidos" name="apellidos" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Email:</ion-label>
+            <ion-input type="email" [(ngModel)]="usuario.email" name="email" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating">Contraseña:</ion-label>
+            <ion-input type="password" [(ngModel)]="usuario.password" name="password" required></ion-input>
+          </ion-item>
+          
+          <div class="ion-margin-top ion-padding-top">
+            <ion-button expand="block" (click)="actualizarUsuario()" color="primary">
+              Actualizar Usuario
+            </ion-button>
+            
+            <ion-button expand="block" (click)="eliminarUsuario()" color="danger" class="ion-margin-top">
+              Eliminar Usuario
+            </ion-button>
+          </div>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
 </ion-content>

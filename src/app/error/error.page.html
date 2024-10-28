@@ -1,18 +1,19 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>error</ion-title>
+    <ion-title>Error 404</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">error</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <div class="error-imagen">
+  <div class="error-container">
     <h1>ERROR 404</h1>
     <img src="assets/gif/ynov.gif" alt="error">
-    <h2>surgio un problema en la carga de la pagina</h2>
+    <h2>Surgió un problema en la carga de la página</h2>
+    <ion-button expand="block" routerLink="/home">
+      Volver al inicio
+    </ion-button>
   </div>
 </ion-content>

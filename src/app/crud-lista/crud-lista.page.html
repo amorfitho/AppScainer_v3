@@ -1,13 +1,27 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>crud-lista</ion-title>
+    <ion-title>Lista de Usuarios</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/ini"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">crud-lista</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-list>
+    <ion-item *ngFor="let usuario of usuarios">
+      <ion-label>
+        <h2>{{ usuario.nombre }} {{ usuario.apellidos }}</h2>
+        <p>{{ usuario.email }}</p>
+      </ion-label>
+      <ion-buttons slot="end">
+        <ion-button [routerLink]="['/modi', usuario.id]" color="primary">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-button>
+        <ion-button (click)="eliminarUsuario(usuario.id)" color="danger">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+  </ion-list>
 </ion-content>

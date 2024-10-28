@@ -1,0 +1,39 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "hans",
+      "apellidos": "Malparido",
+      "email": "hans@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "2",
+      "nombre": "fabian",
+      "apellidos": "Gonzalez Adasme",
+      "email": "fabi@gmail.com",
+      "password": "456"
+    },
+    {
+      "id": "3",
+      "nombre": "nombre",
+      "apellidos": "ape llidos",
+      "email": "email@gmail.com",
+      "password": "1234.password"
+    },
+    {
+      "id": "7511",
+      "nombre": "luca",
+      "apellidos": "friz gonzalez",
+      "email": "luca@gmail.cm",
+      "password": "123"
+    },
+    {
+      "id": "9328",
+      "nombre": "hans",
+      "apellidos": "Ezperanza",
+      "email": "esperanza@gmail.com",
+      "password": "a"
+    }
+  ]
+}

@@ -5,16 +5,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!--<ion-card>
+  <ion-card>
     <ion-card-header>
-      <ion-card-title>Bienbeindo{{ nombre }}</ion-card-title>
+      <ion-card-title>Bienveindo{{ usuario.nombre }}</ion-card-title>
     </ion-card-header>
+  </ion-card> 
     <ion-card-content>
-    </ion-card-content>
-  </ion-card> -->
-  <ion-button (click)="salir()" class="boton_inicio" >Cerrar sesion </ion-button> 
-  <h1>bienvenido</h1>
-  <ion-avatar>
-    <img class="perfil" alt="Silhouette of a person's head" src="assets/icon/hasbulla.jpg" />
-  </ion-avatar>  
+      <ion-button (click)="salir()" class="boton_inicio" >Cerrar sesion </ion-button> 
+      <ion-avatar>
+        <img class="perfil" alt="Silhouette of a person's head" src="assets/icon/hasbulla.jpg" />
+      </ion-avatar>  
+      <ion-item>
+          <h3>Apellidos: {{ usuario.apellidos }}</h3>
+          <h3>Correo: {{ usuario.email }}</h3>
+      </ion-item>
+      <ion-item>
+        <ion-button routerLink="/lista" >Lista de Usuarios</ion-button>
+        <ion-button routerLink="['/modi','usuario.id']" color="warning">Modificar</ion-button>
+      </ion-item>
+  </ion-card-content>
 </ion-content>
