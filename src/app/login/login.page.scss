@@ -14,6 +14,7 @@ ion-button {
     display: flex;
     justify-content: center; 
     align-items: center; 
+    margin-top  : 100px;
 }
 
 .logeo-card {
@@ -55,6 +56,7 @@ ion-input::part(native) {
 
 ion-item {
     --background: #001D3D; 
+    margin-top: 20px;
 }
 ion-spinner {
     width: 100px;
@@ -62,5 +64,7 @@ ion-spinner {
 }
 
 .ion-label{
-    color:#fff
+    color:#fff;
+   
+
 }
