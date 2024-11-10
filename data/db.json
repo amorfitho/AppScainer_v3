@@ -1,13 +1,6 @@
 {
   "usuarios": [
     {
-      "id": "1",
-      "nombre": "hans",
-      "apellidos": "Malparido",
-      "email": "hans@gmail.com",
-      "password": "123"
-    },
-    {
       "id": "2",
       "nombre": "fabian",
       "apellidos": "Gonzalez Adasme",
@@ -34,6 +27,13 @@
       "apellidos": "Ezperanza",
       "email": "esperanza@gmail.com",
       "password": "a"
+    },
+    {
+      "id": "2688",
+      "nombre": "matimene",
+      "apellidos": "menses urzua",
+      "email": "mati@gmail.com",
+      "password": "456"
     }
   ]
 }
