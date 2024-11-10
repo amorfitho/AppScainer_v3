@@ -22,8 +22,8 @@ ion-content {
     justify-content: center; 
     align-items: center;
     margin-top: 0px;
-    margin-left: 45%; 
-    transform: translateX(-50%) translateX(20px); 
+    margin-left: 45%; /* Centra el avatar horizontalmente */
+    transform: translateX(-50%) translateX(20px); /* Ajusta la posición hacia la derecha */
   }
   
   .perfil {
@@ -34,7 +34,7 @@ ion-content {
   }
   
   h1 {
-    font-size: 1.5rem; 
-    text-align: center; 
-    margin-top: 30px; 
+    font-size: 1.5rem; /* Ajusta el tamaño del texto */
+    text-align: center; /* Centra el texto horizontalmente */
+    margin-top: 30px; /* Añade un margen superior para separar el h1 de otros elementos */
   }

@@ -31,9 +31,9 @@ h1{
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 a{
-    display: inline-block; 
-    padding: 0; 
-    text-decoration: none; 
+    display: inline-block; /* Asegura que el enlace se comporte como un elemento en línea */
+    padding: 0; /* Elimina el relleno para que el área clickeable sea del mismo tamaño que el texto */
+    text-decoration: none; /* Elimina el subrayado del enlace */
 }
 
 ion-card {

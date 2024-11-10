@@ -10,7 +10,7 @@ import { SUsuarioService } from '../services/susuario.service';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit {
-  
+  // Solo necesitamos nombre y password para el login
   newUsuario: Partial<IUsuario> = {
     nombre: "",
     password: ""
@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
       );
 
       if (usuarioEncontrado) {
-        
+        // Navegar a la página ini con el ID del usuario
         this.router.navigate(['/ini', usuarioEncontrado.id]);
       } else {
         const alert = await this.alertController.create({

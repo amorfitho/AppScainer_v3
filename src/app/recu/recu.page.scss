@@ -14,14 +14,14 @@ ion-button {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px; 
+  margin-top: 20px; /* Ajusta el margen superior según tus necesidades */
 }
 
 .perfil {
-  width: 150px; 
-  height: 150px; 
-  border-radius: 50%; 
-  object-fit: cover; 
+  width: 150px; /* Ajusta el tamaño según tus necesidades */
+  height: 150px; /* Ajusta el tamaño según tus necesidades */
+  border-radius: 50%; /* Hace que la imagen sea redonda */
+  object-fit: cover; /* Asegura que la imagen se recorte correctamente dentro del contenedor redondo */
 }
 
 ion-card {

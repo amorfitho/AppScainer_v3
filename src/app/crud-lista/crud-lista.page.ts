@@ -45,7 +45,7 @@ export class CrudListaPage implements OnInit {
             this.usuarioServ.eliminarUsuario(id).subscribe(
               () => {
                 this.mostrarMensajeExito();
-                this.cargarUsuarios(); 
+                this.cargarUsuarios(); // Recargar la lista después de eliminar
               },
               error => {
                 this.mostrarError('Error al eliminar el usuario');
