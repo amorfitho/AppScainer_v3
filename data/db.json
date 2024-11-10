@@ -34,6 +34,13 @@
       "apellidos": "Ezperanza",
       "email": "esperanza@gmail.com",
       "password": "a"
+    },
+    {
+      "id": "8499",
+      "nombre": "juans",
+      "apellidos": "pedro",
+      "email": "juan@gmail.com",
+      "password": "123456"
     }
   ]
 }

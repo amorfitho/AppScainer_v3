@@ -37,4 +37,32 @@ ion-content {
     font-size: 1.5rem; /* Ajusta el tamaño del texto */
     text-align: center; /* Centra el texto horizontalmente */
     margin-top: 30px; /* Añade un margen superior para separar el h1 de otros elementos */
-  }
+}
+
+
+.vertical-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; 
+}
+
+.vertical-item h3 {
+  margin: 0; 
+  padding: 5px ; 
+  font-size: 14px; 
+}
+
+.boton_inicio {
+  font-size: 14px; 
+}
+  
+.button-container {
+  position: absolute;
+  bottom: 10px; 
+  width: 100%; 
+  display: flex;
+  justify-content: center; 
+  gap: 10px; 
+}
+
+

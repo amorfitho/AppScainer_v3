@@ -1,27 +1,34 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Scainner</ion-title>
+    <ion-title>Bienvenido {{ usuario.nombre }}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Bienveindo{{ usuario.nombre }}</ion-card-title>
-    </ion-card-header>
-  </ion-card> 
     <ion-card-content>
-      <ion-button (click)="salir()" class="boton_inicio" >Cerrar sesion </ion-button> 
-      <ion-avatar>
-        <img class="perfil" alt="Silhouette of a person's head" src="assets/icon/hasbulla.jpg" />
-      </ion-avatar>  
-      <ion-item>
-          <h3>Apellidos: {{ usuario.apellidos }}</h3>
-          <h3>Correo: {{ usuario.email }}</h3>
-      </ion-item>
-      <ion-item>
-        <ion-button routerLink="/lista" >Lista de Usuarios</ion-button>
-        <ion-button routerLink="['/modi','usuario.id']" color="warning">Modificar</ion-button>
-      </ion-item>
-  </ion-card-content>
+      <ion-button (click)="salir()" class="boton_inicio">Cerrar sesión</ion-button> 
+    </ion-card-content>
+
+    <ion-card-header>
+      <ion-card-title>Bienvenido {{ usuario.nombre }}</ion-card-title>
+    </ion-card-header>
+
+
+  <ion-avatar>
+    <img class="perfil" alt="Silhouette of a person's head" src="assets/icon/hasbulla.jpg" />
+  </ion-avatar>  
+
+  <ion-card>
+    <ion-card-content class="transparent-card">
+      <div class="vertical-item">
+        <h3>nombre: {{ usuario.nombre }} {{ usuario.apellidos }}</h3>
+        <h3>Correo: {{ usuario.email }}</h3>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <div class="button-container">
+    <ion-button class="custom-item" routerLink="/lista">Lista de Usuarios</ion-button>
+    <ion-button class="custom-item" routerLink="/otra-ruta">Escanear QR</ion-button>
+  </div>
 </ion-content>
