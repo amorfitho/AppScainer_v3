@@ -41,6 +41,20 @@
       "apellidos": "pedro",
       "email": "juan@gmail.com",
       "password": "123456"
+    },
+    {
+      "id": "7058",
+      "nombre": "hasbula",
+      "apellidos": "mago",
+      "email": "bula@gmail.com",
+      "password": "567"
+    },
+    {
+      "id": "7327",
+      "nombre": "helen",
+      "apellidos": "mora",
+      "email": "helen@gmail.com",
+      "password": "890"
     }
   ]
 }
