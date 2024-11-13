@@ -55,6 +55,13 @@
       "apellidos": "mora",
       "email": "helen@gmail.com",
       "password": "890"
+    },
+    {
+      "id": "6047",
+      "nombre": "josefo",
+      "apellidos": "riquelme",
+      "email": "rique@gmail.com",
+      "password": "160823"
     }
   ]
 }
