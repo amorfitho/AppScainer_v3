@@ -1,0 +1,1 @@
+sdk.dir=C:\Users\FABIAN\AppData\Local\Android\Sdk
