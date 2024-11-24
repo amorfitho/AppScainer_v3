@@ -8,12 +8,14 @@ import { SkainerPageRoutingModule } from './skainer-routing.module';
 
 import { SkainerPage } from './skainer.page';
 
+import { QrCodeModule } from 'ng-qrcode';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    SkainerPageRoutingModule
+    SkainerPageRoutingModule, QrCodeModule
   ],
   declarations: [SkainerPage]
 })

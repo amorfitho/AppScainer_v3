@@ -31,10 +31,22 @@
       <div id="qrImg">
         <div class="d-flex-center">
           <div class="d-flex-center qr-wrapper">
-
+            <qr-code [value]="qrText" 
+              size="190" 
+              errorCorrectionLevel="M" />
           </div>
+
         </div>
+          <div>{{qrText}}</div>
       </div>
+
+      <ion-textarea
+      label="escquive lo que quieras trasnformar a Qr"
+      labelPlacement="stacked"
+      fill="outline"
+      [(ngModel)]="qrText"
+      [autoGrow]="true"
+      ></ion-textarea>
 
     </div>
     segmento del {{segment}}
