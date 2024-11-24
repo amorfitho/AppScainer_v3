@@ -27,7 +27,7 @@
           </ion-button>
         </ion-col>
         <ion-col size="6">
-          <ion-button class="submit" exportparts="block">
+          <ion-button (click)="readBarcodesFromImage()" class="submit" exportparts="block">
             Galeria
           </ion-button>
         </ion-col>
@@ -65,7 +65,7 @@
       ></ion-textarea>
 
     <!--Compartir-->
-      <ion-button *ngIf="qrText" class="submit ion-margin-top" expand="block" >
+      <ion-button (click)="captureScreen()" *ngIf="qrText" class="submit ion-margin-top" expand="block" >
         Compartir wea
       </ion-button>
     </div>
