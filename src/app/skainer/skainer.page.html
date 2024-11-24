@@ -31,9 +31,8 @@
       <div id="qrImg">
         <div class="d-flex-center">
           <div class="d-flex-center qr-wrapper">
-            <qr-code [value]="qrText" 
-              size="190" 
-              errorCorrectionLevel="M" />
+            <qr-code *ngIf="qrText" [value]="qrText" size="190" errorCorrectionLevel="M" />
+            <!--<img *ngIf="!qrText" src="" alt=""> porte la imagen de migelito en el src-->
           </div>
 
         </div>
