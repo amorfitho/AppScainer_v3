@@ -5,11 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './skainer.page.html',
   styleUrls: ['./skainer.page.scss'],
 })
-export class SkainerPage implements OnInit {
+export class SkainerPage {
+
+  segment='gen';
+
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  
 
 }

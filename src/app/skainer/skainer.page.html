@@ -4,10 +4,42 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">skainer</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+
+  <ion-segment [(ngModel)]="segment" >
+    <ion-segment-button value="sak">
+      <ion-label>Scanear Qr</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="gen">
+      <ion-label>Generara Qr</ion-label>
+    </ion-segment-button>
+
+
+    <div></div>
+
+  </ion-segment>
+<!--Mati haz que se vea bonito-->
+
+  <div *ngIf="segment === 'ska'">
+    segmento del {{segment}}
+  </div>
+
+<!--generacio-->
+  <div class="segment" *ngIf="segment === 'gen'">
+    <div class="segment-content">
+
+      <div id="qrImg">
+        <div class="d-flex-center">
+          <div class="d-flex-center qr-wrapper">
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+    segmento del {{segment}}
+  </div>
+
+
+
 </ion-content>
