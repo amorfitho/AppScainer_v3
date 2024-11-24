@@ -5,40 +5,57 @@
 </ion-header>
 
 <ion-content>
-
   <ion-segment [(ngModel)]="segment" >
-    <ion-segment-button value="sak">
+    <ion-segment-button value="ska">
       <ion-label>Scanear Qr</ion-label>
     </ion-segment-button>
     <ion-segment-button value="gen">
       <ion-label>Generara Qr</ion-label>
     </ion-segment-button>
-
-
-    <div></div>
-
   </ion-segment>
+
 <!--Mati haz que se vea bonito-->
-
-  <div *ngIf="segment === 'ska'">
-    segmento del {{segment}}
+<!--segento de scanneo-->
+  <div class="segment" *ngIf="segment === 'ska'">
+    <div class="segment-content">
+      <img src="assets/images/scan-qr.webp" >
+      <h5 class="scan-label">Pulse el boton para scaniar atravez de la camaro o una imagen</h5>
+      <ion-row>
+        <ion-col size="6">
+          <ion-button (click)="stratScan()" class="submit" exportparts="block">
+            Camara
+          </ion-button>
+        </ion-col>
+        <ion-col size="6">
+          <ion-button class="submit" exportparts="block">
+            Galeria
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    <!--Resultado wea-->
+    <ion-item class="result" *ngIf="resultadoSka" lines="none">
+      <ion-label>
+        <h6>resultado Scanneo</h6>
+        <p>
+          {{resultadoSka}}
+        </p>
+      </ion-label>
+    </ion-item>
+    </div>
   </div>
-
 <!--generacio-->
   <div class="segment" *ngIf="segment === 'gen'">
     <div class="segment-content">
-
       <div id="qrImg">
         <div class="d-flex-center">
           <div class="d-flex-center qr-wrapper">
             <qr-code *ngIf="qrText" [value]="qrText" size="190" errorCorrectionLevel="M" />
-            <!--<img *ngIf="!qrText" src="" alt=""> porte la imagen de migelito en el src-->
+            <img *ngIf="!qrText" src="assets/images/qr.webp" alt="">
           </div>
-
         </div>
           <div>{{qrText}}</div>
       </div>
-
+    <!--zona escritura para el qr-->
       <ion-textarea
       label="escquive lo que quieras trasnformar a Qr"
       labelPlacement="stacked"
@@ -47,6 +64,10 @@
       [autoGrow]="true"
       ></ion-textarea>
 
+    <!--Compartir-->
+      <ion-button *ngIf="qrText" class="submit ion-margin-top" expand="block" >
+        Compartir wea
+      </ion-button>
     </div>
     segmento del {{segment}}
   </div>

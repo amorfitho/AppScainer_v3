@@ -9,6 +9,7 @@ import { SkainerPageRoutingModule } from './skainer-routing.module';
 import { SkainerPage } from './skainer.page';
 
 import { QrCodeModule } from 'ng-qrcode';
+import { BarcodeScanningModalComponent } from './barcode-scanning-modal.component';
 
 @NgModule({
   imports: [
@@ -17,6 +18,6 @@ import { QrCodeModule } from 'ng-qrcode';
     IonicModule,
     SkainerPageRoutingModule, QrCodeModule
   ],
-  declarations: [SkainerPage]
+  declarations: [SkainerPage,BarcodeScanningModalComponent]
 })
 export class SkainerPageModule {}

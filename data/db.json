@@ -62,6 +62,13 @@
       "apellidos": "riquelme",
       "email": "rique@gmail.com",
       "password": "160823"
+    },
+    {
+      "id": "5934",
+      "nombre": "lara",
+      "apellidos": "urzuea",
+      "email": "lara@gmail.com",
+      "password": "1234"
     }
   ]
 }
