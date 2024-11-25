@@ -47,6 +47,13 @@ const routes: Routes = [
     path: 'skainer',
     loadChildren: () => import('./skainer/skainer.module').then( m => m.SkainerPageModule)
     
+  },{
+    path: 'ins-alumno',
+    loadChildren: () => import('./ins-alumno/ins-alumno.module').then( m => m.InsAlumnoPageModule)
+  },
+  {
+    path: 'crud-lista-alum',
+    loadChildren: () => import('./crud-lista-alum/crud-lista-alum.module').then( m => m.CrudListaAlumPageModule)
   },
   // La ruta wildcard debe ser la última
   {
@@ -54,6 +61,8 @@ const routes: Routes = [
     loadChildren: () => import('./error/error.module').then( m => m.ErrorPageModule)
     
   },
+  
+
 ];
 
 @NgModule({
