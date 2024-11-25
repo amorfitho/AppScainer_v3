@@ -36,13 +36,6 @@
       "password": "a"
     },
     {
-      "id": "8499",
-      "nombre": "juans",
-      "apellidos": "pedro",
-      "email": "juan@gmail.com",
-      "password": "123456"
-    },
-    {
       "id": "7058",
       "nombre": "hasbula",
       "apellidos": "mago",
@@ -69,6 +62,32 @@
       "apellidos": "urzuea",
       "email": "lara@gmail.com",
       "password": "1234"
+    },
+    {
+      "id": "4868",
+      "nombre": "jose",
+      "apellidos": "riquele",
+      "email": "jose@gmail.com",
+      "password": "1234"
+    }
+  ],
+  "clases":[
+    {
+      "codigoClase":"testClase",
+      "alumnos":[
+        {
+          "nombre":"Jose"
+        },
+        {
+          "nombre":"fabian"
+        }
+      ]
+    },
+    {
+      "codigoClase":"clase1",
+      "alumnos":[   
+      ]
     }
   ]
+  
 }

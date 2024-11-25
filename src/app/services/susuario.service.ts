@@ -32,5 +32,8 @@ export class SUsuarioService {
   eliminarUsuario(id: number): Observable<any> {
     return this.http.delete(`${environment.apiURL}/usuarios/${id}`);
   }
+  consultarClase(clase:String):Observable<any>{
+    return this.http.get(environment.apiURL+"/clases/?codigoClase="+clase)
+  }
 
 }

@@ -13,42 +13,53 @@ import { Router } from '@angular/router';
 })
 export class IniPage {
 
-  usuario ={
-    id:0,
-    nombre:"",
-    apellidos:"",
-    email:"",
-    password:""
+  alumnos: any[] = []
+  usuario = {
+    id: 0,
+    nombre: "",
+    apellidos: "",
+    email: "",
+    password: ""
   };
 
-  constructor(public navControl: NavController, private usuarioserv: SUsuarioService, private loadinCTrL:LoadingController, private router: Router) {}
+  constructor(public navControl: NavController, private usuarioserv: SUsuarioService, private loadinCTrL: LoadingController, private router: Router) { }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.getUsuarioById(this.getFromURL())
+    this.usuarioserv.consultarClase("testClase").subscribe((data) => {
+      data.forEach((clase:any) => {
+        clase.alumnos.forEach((alumno:any) => {
+            this.alumnos.push(alumno)
+        });
+      });
+    })
+  }
+  ngAfterContentInit(){
+    console.log(this.alumnos)
   }
 
-  getFromURL(){
+  getFromURL() {
     let url = this.router.url
-    let arr = url.split("/",3)
+    let arr = url.split("/", 3)
     let id = parseInt(arr[2])
     return id
   }
 
-  getUsuarioById(usuarioId:number){
+  getUsuarioById(usuarioId: number) {
     this.usuarioserv.getUsuarioById(usuarioId).subscribe(
-    (resp:any) =>{
-      this.usuario={
-        id: resp[0].id,
-        nombre: resp[0].nombre,
-        apellidos: resp[0].apellidos,
-        email: resp[0].email,
-        password: resp[0].password
+      (resp: any) => {
+        this.usuario = {
+          id: resp[0].id,
+          nombre: resp[0].nombre,
+          apellidos: resp[0].apellidos,
+          email: resp[0].email,
+          password: resp[0].password
+        }
       }
-    }
     )
   }
 
-  
+
 
   async salir() {
     localStorage.removeItem('Ingresado');
