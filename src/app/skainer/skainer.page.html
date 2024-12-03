@@ -5,7 +5,7 @@
 </ion-header>
 
 <ion-content>
-  <ion-segment [(ngModel)]="segment" >
+  <ion-segment [(ngModel)]="segment">
     <ion-segment-button value="ska">
       <ion-label>Scanear Qr</ion-label>
     </ion-segment-button>
@@ -14,12 +14,24 @@
     </ion-segment-button>
   </ion-segment>
 
-<!--Mati haz que se vea bonito-->
-<!--segento de scanneo-->
+  <!--segento de scanneo-->
   <div class="segment" *ngIf="segment === 'ska'">
     <div class="segment-content">
-      <img src="assets/images/scan-qr.webp" >
-      <h5 class="scan-label">Pulse el boton para scaniar atravez de la camaro o una imagen</h5>
+      <div class="image-container">
+        <img src="assets/icon/qr_imagen.png" alt="QR Image">
+      </div>      
+      <div class="text-container">
+        <h5 class="scan-label">Pulse el botón para escanear a través de la cámara o una imagen</h5>
+      </div>   
+      <!--Resultado-->
+      <ion-item class="result" *ngIf="resultadoSka" lines="none">
+        <ion-label>
+          <h6>resultado Scanneo</h6>
+          <p>
+            {{resultadoSka}}
+          </p>
+        </ion-label>
+      </ion-item>   
       <ion-row>
         <ion-col size="6">
           <ion-button (click)="stratScan()" class="submit" exportparts="block">
@@ -32,41 +44,27 @@
           </ion-button>
         </ion-col>
       </ion-row>
-    <!--Resultado wea-->
-    <ion-item class="result" *ngIf="resultadoSka" lines="none">
-      <ion-label>
-        <h6>resultado Scanneo</h6>
-        <p>
-          {{resultadoSka}}
-        </p>
-      </ion-label>
-    </ion-item>
     </div>
   </div>
-<!--generacio-->
+  <!--generacio de QR-->
   <div class="segment" *ngIf="segment === 'gen'">
     <div class="segment-content">
       <div id="qrImg">
         <div class="d-flex-center">
           <div class="d-flex-center qr-wrapper">
-            <qr-code *ngIf="qrText" [value]="qrText" size="190" errorCorrectionLevel="M" />
-            <img *ngIf="!qrText" src="assets/images/qr.webp" alt="">
+            <qr-code *ngIf="qrText" [value]="qrText" size="190" errorCorrectionLevel="M"></qr-code>
+            <img *ngIf="!qrText" src="assets/icon/qr_imagen.png" alt="QR Image">
           </div>
         </div>
-          <div>{{qrText}}</div>
+        <div>{{qrText}}</div>
       </div>
-    <!--zona escritura para el qr-->
-      <ion-textarea
-      label="escquive lo que quieras trasnformar a Qr"
-      labelPlacement="stacked"
-      fill="outline"
-      [(ngModel)]="qrText"
-      [autoGrow]="true"
-      ></ion-textarea>
+      <!--zona escritura para el qr-->
+      <ion-textarea label="escquive lo que quieras trasnformar a Qr" labelPlacement="stacked" fill="outline"
+        [(ngModel)]="qrText" [autoGrow]="true"></ion-textarea>
 
-    <!--Compartir-->
-      <ion-button (click)="captureScreen()" *ngIf="qrText" class="submit ion-margin-top" expand="block" >
-        Compartir wea
+      <!--Compartir-->
+      <ion-button (click)="captureScreen()" *ngIf="qrText" class="submit ion-margin-top" expand="block">
+        Compartir link
       </ion-button>
     </div>
     segmento del {{segment}}

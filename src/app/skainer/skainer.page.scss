@@ -1,3 +1,7 @@
+ion-content {
+  --background: #003566;
+}
+
 ion-segment{
     margin-top: 20px;
    }
@@ -9,7 +13,7 @@ ion-segment{
    .submit{
      height: 44px;
      --border-radius: 10px;
-     --background: var(--ion-color-tertiary);
+     --background: #FFC300;
    }
    
    .scan-label{
@@ -53,7 +57,6 @@ ion-segment{
    .qr-wrapper{
      width: 230px; 
      min-height: 230px;
-     background: var(--ion-color-tertiary); 
      border-radius: 20px;
    }
    
@@ -67,3 +70,30 @@ ion-segment{
      align-items: center;
    }
    
+.d-flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.qr-wrapper img {
+  max-width: 100%;
+  height: auto; 
+}
+.image-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+  height: 100%; 
+}
+
+.text-container {
+  margin-top: 25px;
+  text-align: center; /* Centra el texto horizontalmente */
+}
+
+.scan-label {
+  margin-top: 20px;
+  margin: 0 auto; /* Asegura que el margen sea automático */
+}
+
