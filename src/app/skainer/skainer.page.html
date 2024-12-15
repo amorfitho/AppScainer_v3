@@ -18,7 +18,7 @@
   <div class="segment" *ngIf="segment === 'ska'">
     <div class="segment-content">
       <div class="image-container">
-        <img src="assets/icon/qr_imagen.png" alt="QR Image">
+        <img src="assets/images/qr_imagen.png" alt="QR Image">
       </div>
       <div class="text-container">
         <h5 class="scan-label">Pulse el botón para escanear a través de la cámara o una imagen</h5>
@@ -54,7 +54,7 @@
         <div class="d-flex-center">
           <div class="d-flex-center qr-wrapper">
             <qr-code *ngIf="qrText" [value]="qrText" size="190" errorCorrectionLevel="M"></qr-code>
-            <img *ngIf="!qrText" src="assets/icon/qr_imagen.png" alt="QR Image">
+            <img *ngIf="!qrText" src="assets/images/qr_imagen.png" alt="QR Image">
           </div>
         </div>
         <div>{{qrText}}</div>
